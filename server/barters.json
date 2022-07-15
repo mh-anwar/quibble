@@ -1,0 +1,27 @@
+{
+  "iphone12": {
+    { "user": "mo" },
+    { "time": "13:12" },
+    { "image": "./iphone-12.png" }
+  },
+  "iphone13": {
+    { "user": "mo" },
+    { "time": "13:12" },
+    { "image": "./iphone-12.png" }
+  },
+  "iphone15": {
+    { "user": "mo" },
+    { "time": "13:12" },
+    { "image": "./iphone-12.png" }
+  },
+  "iphone19": {
+    { "user": "mo" },
+    { "time": "13:12" },
+    { "image": "./iphone-12.png" }
+  },
+  "iphone1": {
+    { "user": "mo" },
+    { "time": "13:12" },
+    { "image": "./iphone-12.png" }
+  }
+}
