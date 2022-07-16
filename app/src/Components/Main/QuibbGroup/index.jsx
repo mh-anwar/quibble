@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Box } from '@mui/material';
 import { useState } from 'react';
 import Quibb from './Quibb';
-import styles from './index.css';
+import './index.css';
 
 export default function QuibbGroup() {
   const [cards, setCards] = useState(null);
@@ -29,6 +29,7 @@ export default function QuibbGroup() {
           user={data[key]['user']}
           product={key}
           time={data[key]['time']}
+          description={data[key]['description']}
           image={data[key]['image']}
         />
       );
@@ -37,5 +38,9 @@ export default function QuibbGroup() {
     setCards(quibbs);
   };
 
-  return <Box className="group">{cards}</Box>;
+  return (
+    <Box key={'quibbgroup'} className="group">
+      {cards}
+    </Box>
+  );
 }

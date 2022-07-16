@@ -63,7 +63,10 @@ export default function SearchAppBar() {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
             Quibble
-          </Typography>
+          </Typography>{' '}
+          <Button href="/auth" variant="contained">
+            Login|Signup
+          </Button>
           <Button href="/quibb" variant="contained">
             Post A Quibb
           </Button>

@@ -24,6 +24,15 @@ app.use('/api', (request, res) => {
     token: 'test12233',
   });
 });
+
+app.use('/auth', (request, res) => {
+  console.log(request.body);
+
+  res.send({
+    token: 'test12233',
+  });
+});
+
 app.use('/barters', (request, res) => {
   res.send(barters);
 });

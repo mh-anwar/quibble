@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  min-width: 100vh;
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  align-items: center;
+  background-image: url('connect.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(225, 241, 241);
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  padding: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-login {
+    display: flex;
+    flex-direction: column;
+  }
+  .auth {
+    width: 90%;
+  }
+}

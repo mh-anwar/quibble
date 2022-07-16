@@ -1,8 +1,7 @@
 {
-  "iphone 12": {
-    "seller": "John Doe",
-    "profile_picture": "url",
-    "item_picture": "url",
-    "worth": "120"
+  "user": {
+    "email": "mohammad.anwar2939@gmail.com",
+    "password": "test",
+    "description": ""
   }
 }
