@@ -1,2 +1,2 @@
-export { default as Header } from './Header';
-export { default as BarterGroup } from './BarterGroup';
+export { default as Main } from './Main';
+export { default as PostQuibb } from './PostQuibb';

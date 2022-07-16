@@ -1,0 +1,18 @@
+.main {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.preview {
+  background-color: lightblue;
+  flex-grow: 1;
+}
+
+.post-quibb {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 2;
+  justify-content: space-evenly;
+}

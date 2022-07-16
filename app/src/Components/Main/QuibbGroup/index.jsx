@@ -2,9 +2,10 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { Box } from '@mui/material';
 import { useState } from 'react';
-import BarterCard from './BarterCard';
+import Quibb from './Quibb';
+import styles from './index.css';
 
-export default function BarterGroup() {
+export default function QuibbGroup() {
   const [cards, setCards] = useState(null);
   useEffect(() => {
     const fetchBarters = async () => {
@@ -22,17 +23,19 @@ export default function BarterGroup() {
   }, []);
 
   const populateCards = (data) => {
-    let group = [];
-    console.log(data.entries);
-    for (let key in data) {
-      console.log(data[key]);
-      data[key].map(({ user, time, image }) => {
-        group.push(<BarterCard user={user} time={time} image={image} />);
-        console.log('t');
-      });
-    }
-    setCards(group);
+    let quibbs = Object.keys(data).map((key) => {
+      return (
+        <Quibb
+          user={data[key]['user']}
+          product={key}
+          time={data[key]['time']}
+          image={data[key]['image']}
+        />
+      );
+    });
+
+    setCards(quibbs);
   };
 
-  return <Box>{cards}</Box>;
+  return <Box className="group">{cards}</Box>;
 }

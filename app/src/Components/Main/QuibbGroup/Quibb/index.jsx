@@ -7,26 +7,22 @@ import Avatar from '@mui/material/Avatar';
 import CardContent from '@mui/material/CardContent';
 import { red } from '@mui/material/colors';
 import iphone from './iphone-13.png';
+import styles from './index.css';
 
-// eslint-disable-next-line no-unused-vars
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
-export default function BarterCard({ user, time, image }) {
+export default function Quibb({ user, product, time, image }) {
   return (
-    <Card sx={{ maxWidth: '30%', maxHeight: '20%', margin: '0.3em' }}>
+    <Card
+      key={user + product}
+      sx={{ maxWidth: '30%', maxHeight: '20%', margin: '0.3em' }}
+      className="card"
+    >
       <CardContent>
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: red[800] }} aria-label="recipe"></Avatar>
           }
-          title={user}
-          subheader={time}
+          title={product}
+          subheader={user + ' • ' + time}
         />
       </CardContent>
       <CardMedia component="img" height="200" width="200" image={iphone} />

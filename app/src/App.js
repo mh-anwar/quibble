@@ -1,13 +1,18 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { Header, BarterGroup } from './Components/Components';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Main, PostQuibb } from './Components/Components';
 import './App.css';
 
 function App() {
   return (
     <Box className="App">
-      <Header />
-      <BarterGroup />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/quibb" element={<PostQuibb />} />
+        </Routes>
+      </BrowserRouter>
     </Box>
   );
 }

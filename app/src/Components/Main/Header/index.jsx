@@ -64,7 +64,9 @@ export default function SearchAppBar() {
           >
             Quibble
           </Typography>
-          <Button variant="contained">Create Listing</Button>
+          <Button href="/quibb" variant="contained">
+            Post A Quibb
+          </Button>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
