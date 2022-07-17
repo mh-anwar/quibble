@@ -1,0 +1,23 @@
+{
+  "name": "hackathon",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "16.x",
+    "npm": "6.x"
+  },
+  "scripts": {
+    "start": "cd ./server && node server.js",
+    "build": "cd ./app && npm build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mh-anwar/quibble.git"
+  },
+  "author": "Mohammad Anwar & Reese Chong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mh-anwar/quibble/issues"
+  },
+  "homepage": "https://github.com/mh-anwar/quibble#readme"
+}
