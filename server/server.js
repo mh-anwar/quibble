@@ -26,6 +26,28 @@ app.use('/api', (request, res) => {
     token: 'test12233',
   });
 });
+app.use('/login', (request, res) => {
+  const data = request.body;
+  let user = data.userName;
+  let password = data.password;
+
+  fs.readFile('./users.json', 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      obj = JSON.parse(data); //now it an object
+      if (user in obj) {
+        if (obj[user]['password'] == password) {
+          res.send({ username: true, password: true });
+        } else {
+          res.send({ username: true, password: false });
+        }
+      } else {
+        res.send({ username: false, password: false });
+      }
+    }
+  });
+});
 
 app.use('/join', (request, res) => {
   const data = request.body;

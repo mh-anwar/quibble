@@ -14,7 +14,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import './index.css';
 
-export default function Login() {
+export default function Join() {
   const [value, setValue] = useState({
     email: '',
     userName: '',
@@ -113,10 +113,11 @@ async function createAccount(value) {
     .then((data) => data.json())
     .then((response) => {
       if (response.success === true) {
-        // Similar behavior as clicking on a link
         window.location.href = '/';
       } else {
-        window.alert('You cannot join with this username.');
+        window.alert(
+          'This username already exists! Please choose a new username!'
+        );
       }
     });
 }

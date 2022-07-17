@@ -34,7 +34,7 @@ export default function Login() {
     event.preventDefault();
   };
   return (
-    <Box className='login'>
+    <Box className="login">
       <TextField
         value={value.userName}
         onChange={handleChange}
@@ -63,9 +63,36 @@ export default function Login() {
           label="Password"
         />
       </FormControl>
-      <Button className="button" variant="contained">
+      <Button
+        onClick={() => checkAccount(value)}
+        className="button"
+        variant="contained"
+      >
         Login
       </Button>
     </Box>
   );
+}
+
+async function checkAccount(value) {
+  console.log(value);
+  return fetch('http://localhost:4000/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(value),
+  })
+    .then((data) => data.json())
+    .then((response) => {
+      if (response.username === true && response.password === true) {
+        window.location.href = '/';
+      } else if (response.username === true && response.password === false) {
+        window.alert('Incorrect password');
+      } else if (response.username === true) {
+        window.alert('Incorrect username');
+      } else {
+        window.location.href = '/';
+      }
+    });
 }
