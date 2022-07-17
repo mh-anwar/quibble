@@ -1,3 +1,6 @@
+# Recess Hacks Submission 2022 by @mh-anwar and @r-chong
+
+
 ## Inspiration
 As long-time online buyers, @mh-anwar and I have tried every consumer-to-consumer platform in Canada. One thing that we constantly noted was the lack of a way to contact sellers to dispute the price, which led us to create Quibble, the price negotiation app.
 
