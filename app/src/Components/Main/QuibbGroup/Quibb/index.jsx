@@ -5,7 +5,7 @@ import { Box, CardHeader, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import CardContent from '@mui/material/CardContent';
 import { red } from '@mui/material/colors';
-import iphone from './iphone-13.png';
+import iphone from './images/iphone-13.png';
 import './index.css';
 
 export default function Quibb({

@@ -1,13 +1,1 @@
-{
-  "Mohammad": {
-    "email": "mohammad.anwar2939@gmail.com",
-    "password": "tester123",
-    "profile": "Hi I am a junior dev, looking to trade!"
-  },
-  "Reese": {
-    "email": "reesec3d@gmail.com",
-    "password": "test",
-    "profile": "Hey, wsp!"
-  },
-  "test": { "email": "test", "password": "tester", "profile": "test" }
-}
+{"Mohammad":{"email":"mohammad.anwar2939@gmail.com","password":"tester123","profile":"Hi I am a junior dev, looking to trade!"},"Reese":{"email":"reesec3d@gmail.com","password":"test","profile":"Hey, wsp!"},"test":{"email":"test","password":"tester","profile":"test"},"":{"email":"","password":"","profile":""},"raboo":{"email":"raboo@daboo.ca","password":"yahoo","profile":"naboo"}}

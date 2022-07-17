@@ -2,67 +2,7 @@
   "iPhone 12": {
     "user": "Mohammad",
     "time": "13:02",
-    "image": "./iphone-12.png",
+    "image": "./images/iphone-13.png",
     "description": "SIM-free” means your iPhone doesn’t ship with a carrier nano-SIM. The SIM-free iPhone sold on apple.com and at the Apple Store is unlocked. That means you can use a nano-SIM or eSIM from any carrier that provides service for iPhone."
   },
-  "iPhone 13": {
-    "user": "Reese",
-    "time": "14:00",
-    "image": "./iphone-12.png",
-    "description": "If you completed the steps to authorize activation with AT&T, Sprint, T-Mobile, or Verizon when you purchased your new iPhone online, it will arrive ready to use. Just turn it on and follow the onscreen instructions to set it up and activate with the carrier. If you chose to skip carrier authorization at the time of purchase, you’ll need to contact your carrier or visit an Apple Store to enable cellular services."
-  },
-  "Laptop": {
-    "user": "John",
-    "time": "15:00",
-    "image": "./iphone-12.png",
-    "description": "Save on a new Mac or iPad with Apple education pricing. Available to current and newly accepted college students and their parents, as well as faculty, staff, and homeschool teachers of all grade levels.Footnote"
-  },
-  "PC": {
-    "user": "John",
-    "time": "19:00",
-    "image": "./iphone-12.png",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique unde fugit veniam eius, perspiciatis sunt? Corporis qui ducimus quibusdam, aliquam dolore excepturi quae. Distinctio enim at eligendi perferendis in cum quibusdam sed quae, accusantium et aperiam? Quod itaque exercitationem."
-  },
-  "Graphics Card": {
-    "user": "Jonathan",
-    "time": "24:00",
-    "image": "./iphone-12.png",
-    "description": "Foo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar baz"
-  },
-  "Monitor": {
-    "user": "24IsWow",
-    "time": "24:00",
-    "image": "./iphone-12.png",
-    "description": "Foo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar baz"
-  },
-  "Mask (20-pack)": {
-    "user": "seerE",
-    "time": "24:00",
-    "image": "./iphone-12.png",
-    "description": "Foo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar baz"
-  },
-  "Snake": {
-    "user": "Diben Marcus",
-    "time": "24:00",
-    "image": "./iphone-12.png",
-    "description": "Foo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar baz"
-  },
-  "RAID Server": {
-    "user": "Zedebiah",
-    "time": "24:00",
-    "image": "./iphone-12.png",
-    "description": "Foo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar baz"
-  },
-  "Pencil - 100 pack": {
-    "user": "Ananymous",
-    "time": "24:00",
-    "image": "./iphone-12.png",
-    "description": "Foo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar baz"
-  },
-  "Pen - 100 pack": {
-    "user": "Ananymous",
-    "time": "24:00",
-    "image": "./iphone-12.png",
-    "description": "Foo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar bazFoo Bar baz"
-  }
 }
