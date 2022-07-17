@@ -14,11 +14,9 @@ or with SSH
 - git clone git@github.com:mh-anwar/quibble.git repo-name
 
 Then
-
-- cd ./app
+- cd ./server
 - npm start
 
 and
-
-- cd .server
+- cd ./app
 - npm start
