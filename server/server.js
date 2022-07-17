@@ -18,9 +18,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../app/build', 'index.html'));
 });
 
-app.listen(9000);
+app.listen(port);
 
-app.listen(port, () => {
+app.listen(4000, () => {
   console.log(`listening on port ${port} ...`);
 });
 
