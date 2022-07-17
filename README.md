@@ -12,3 +12,23 @@ The most important thing that we learned was to work on the backend first and fr
 
 ## What's next for Quibble
 The next step for Quibble would be to scale. In order to support hundreds, thousands if not millions of users, the project will need to use a database such as MongoDB. Furthermore we would need to iron out various bugs and to do a more in-depth dive into APIs in order to improve the negotiation experience between buyer and seller. 
+
+---
+
+# How to run
+
+### Pre-requisites
+- Node.js version 16+
+- NPM version 6+ (comes with node.js)
+
+This project does not have a website yet, to test locally:
+- git clone https://github.com/mh-anwar/quibble.git repo-name
+or with SSH
+- git clone git@github.com:mh-anwar/quibble.git repo-name
+
+Then
+`cd ./app`
+`npm start`
+and
+`cd .server`
+`npm start`
