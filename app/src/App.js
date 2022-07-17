@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <Box className="App">
-      <BrowserRouter basename={'./'}>
+      <BrowserRouter basename={process.env.PORT}>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/quibb" element={<PostQuibb />} />{' '}
