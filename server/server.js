@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = express.Router();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 const barters = require('./barters.json');
 const fs = require('fs');
 

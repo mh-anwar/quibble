@@ -7,7 +7,7 @@
     "npm": "6.x"
   },
   "scripts": {
-    "start": "cd ./server && npm install && node server.js"
+    "start": "cd ./server && npm install && node server.js && http-server --proxy process.env.PORT ./server/build"
   },
   "repository": {
     "type": "git",
