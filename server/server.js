@@ -26,6 +26,7 @@ app.use('/api', (request, res) => {
     token: 'test12233',
   });
 });
+
 app.use('/login', (request, res) => {
   const data = request.body;
   let user = data.userName;
@@ -57,8 +58,6 @@ app.use('/join', (request, res) => {
   let profile = data.profile;
   let new_json = { [user]: { email, password, profile } };
 
-  console.log('initial data', new_json);
-
   fs.readFile('./users.json', 'utf8', function readFileCallback(err, data) {
     if (err) {
       console.log(err);
@@ -66,14 +65,74 @@ app.use('/join', (request, res) => {
       obj = JSON.parse(data); //now it an object
       let final_json = Object.assign({}, obj, new_json);
       final_json = JSON.stringify(final_json); //convert it back to json
-      fs.writeFile('./users.json', final_json, 'utf8', (err) =>
+      fs.writeFile(
+        './users.json',
+        final_json,
+        'utf8',
+        (err) => res.send(err),
         console.log(err)
-      ); // write it back
+      );
     }
   });
   res.send({ success: true });
 });
 
-app.use('/barters', (request, res) => {
-  res.send(barters);
+app.use('/postQuibb', (request, res) => {
+  const data = request.body;
+  let user = data.userName;
+  let productName = data.productName;
+  let image = data.image;
+  let description = data.description;
+  let time =
+    new Date().getHours() +
+    ':' +
+    new Date().getMinutes() +
+    ':' +
+    new Date().getSeconds();
+  let new_json = { [productName]: { user, time, image, description } };
+
+  console.log('initial data', new_json);
+
+  fs.readFile('./barters.json', 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      obj = JSON.parse(data);
+      let final_json = Object.assign({}, obj, new_json);
+      final_json = JSON.stringify(final_json); //convert it back to json
+      fs.writeFile(
+        './barters.json',
+        final_json,
+        'utf8',
+        (err) => res.send(err),
+        console.log(err)
+      );
+    }
+  });
+  res.send({ success: true });
+});
+//Normal barter
+app.use('/barters/*', (request, res) => {
+  let userName = request.params['0'];
+  console.log(userName);
+  let user_data = {};
+  let general_data = {};
+  let main_data = {};
+  fs.readFile('./barters.json', 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      obj = JSON.parse(data);
+      for (let key in obj) {
+        if (obj[key]['user'] != userName) {
+          general_data[key] = obj[key];
+        } else {
+          user_data[key] = obj[key];
+        }
+      }
+      main_data['general'] = general_data;
+      main_data['user'] = user_data;
+      res.send(main_data);
+    }
+  });
 });
