@@ -1,46 +1,64 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
-import { useState } from 'react';
 import Quibb from './Quibb';
+import { HOST } from '../../../constants';
 import './index.css';
 
 export default function QuibbGroup() {
-  const [cards, setCards] = useState(null);
+  const [mainQuibbs, setMainQuibbs] = useState(null);
+  const [userQuibbs, setUserQuibbs] = useState(null);
   useEffect(() => {
     const fetchBarters = async () => {
       //Add error catching later
-      const barters = await fetch('http://localhost:4000/barters')
+      const barters = await fetch(
+        HOST + '/barters/' + localStorage.getItem('userName')
+      )
         .then((response) => {
           return response.json();
         })
         .then((json) => {
           return json;
         });
-      populateCards(barters);
+      populateQuibbs(barters);
     };
     fetchBarters();
   }, []);
 
-  const populateCards = (data) => {
-    let quibbs = Object.keys(data).map((key) => {
+  const populateQuibbs = (data) => {
+    let mainData = data['general'];
+    let userData = data['user'];
+    let userQuibbs = Object.keys(userData).map((key) => {
       return (
         <Quibb
-          user={data[key]['user']}
+          user={userData[key]['user']}
           product={key}
-          time={data[key]['time']}
-          description={data[key]['description']}
-          image={data[key]['image']}
+          time={userData[key]['time']}
+          description={userData[key]['description']}
+          image={userData[key]['image']}
+          action={true}
         />
       );
     });
-
-    setCards(quibbs);
+    let mainQuibbs = Object.keys(mainData).map((key) => {
+      return (
+        <Quibb
+          user={mainData[key]['user']}
+          product={key}
+          time={mainData[key]['time']}
+          description={mainData[key]['description']}
+          image={mainData[key]['image']}
+        />
+      );
+    });
+    setUserQuibbs(userQuibbs);
+    setMainQuibbs(mainQuibbs);
   };
 
   return (
     <Box key={'quibbgroup'} className="group">
-      {cards}
+      <Box className="group">{userQuibbs}</Box>
+      <Box className="group">{mainQuibbs}</Box>
     </Box>
   );
 }

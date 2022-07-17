@@ -1,12 +1,14 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Avatar, Link } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
-
+import { HOST } from '../../../constants';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Search = styled('div')(({ theme }) => ({
@@ -52,6 +54,76 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+  const [action, setAction] = useState(null);
+  const getRandomColor = () => {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+  useEffect(() => {
+    const evalRes = (response, userName) => {
+      if (response.username === true && response.password === true) {
+        setAction(
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              marginRight: '5px',
+              gap: '0.3em',
+            }}
+          >
+            <Avatar sx={{ bgcolor: getRandomColor() }}>
+              {userName.split('')[0]}
+            </Avatar>
+            <Button
+              href="/auth"
+              onClick={() => {
+                localStorage.clear();
+              }}
+              variant="contained"
+            >
+              Logout
+            </Button>
+          </Box>
+        );
+      } else {
+        setAction(
+          <Button href="/auth" variant="contained">
+            Join
+          </Button>
+        );
+      }
+    };
+    const checkLogin = async () => {
+      let userName = localStorage.getItem('userName');
+      let password = localStorage.getItem('password');
+      if (userName !== null) {
+        let data = { userName: [userName], password: [password] };
+        const auth = await fetch(HOST + '/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+          .then((data) => {
+            return data.json();
+          })
+          .then((response) => {
+            return response;
+          });
+
+        evalRes(auth, userName);
+      } else {
+        evalRes(false, userName);
+      }
+    };
+    checkLogin();
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -62,11 +134,11 @@ export default function SearchAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Quibble
-          </Typography>{' '}
-          <Button href="/auth" variant="contained">
-            Login|Signup
-          </Button>
+            <Link sx={{ color: '#ffff ' }} underline="none" href="/">
+              Quibble
+            </Link>
+          </Typography>
+          {action}
           <Button href="/quibb" variant="contained">
             Post A Quibb
           </Button>

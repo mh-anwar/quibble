@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { HOST } from '../../../constants';
 import './index.css';
 
 export default function Login() {
@@ -26,6 +27,7 @@ export default function Login() {
       showPassword: !value.showPassword,
     });
   };
+  console.log(HOST);
   const handleChange = (event) => {
     setValue((prev) => ({ ...prev, [event.target.name]: event.target.value }));
     console.log(value);
@@ -75,8 +77,8 @@ export default function Login() {
 }
 
 async function checkAccount(value) {
-  console.log(value);
-  return fetch('http://localhost:4000/login', {
+  console.log(HOST + '/login');
+  return fetch(HOST + '/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -86,13 +88,14 @@ async function checkAccount(value) {
     .then((data) => data.json())
     .then((response) => {
       if (response.username === true && response.password === true) {
+        localStorage.clear();
+        localStorage.setItem('userName', value.userName);
+        localStorage.setItem('password', value.password);
         window.location.href = '/';
       } else if (response.username === true && response.password === false) {
         window.alert('Incorrect password');
       } else if (response.username === true) {
         window.alert('Incorrect username');
-      } else {
-        window.location.href = '/';
       }
     });
 }

@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { HOST } from '../../../constants';
 import './index.css';
 
 export default function Join() {
@@ -27,7 +28,6 @@ export default function Join() {
       ...prev,
       [event.target.name]: event.target.value,
     }));
-    console.log(value);
   };
 
   const handleClickShowPassword = () => {
@@ -41,7 +41,7 @@ export default function Join() {
     event.preventDefault();
   };
   return (
-    <Box component="form" className="join">
+    <Box className="join">
       <TextField
         required
         value={value.email}
@@ -56,10 +56,9 @@ export default function Join() {
         name="userName"
         label="Username"
       />
-      <FormControl variant="outlined">
+      <FormControl required variant="outlined">
         <InputLabel htmlFor="password">Password</InputLabel>
         <OutlinedInput
-          required
           id="password"
           type={value.showPassword ? 'text' : 'password'}
           value={value.password}
@@ -85,14 +84,13 @@ export default function Join() {
         onChange={handleChange}
         name="profile"
         label="Profile"
-        className="field"
         multiline
         sx={{ maxHeight: '10ch' }}
         rows={4}
       />
       <Button
         onClick={() => createAccount(value)}
-        className="button"
+        className="join-button"
         variant="contained"
       >
         Join
@@ -103,7 +101,7 @@ export default function Join() {
 
 async function createAccount(value) {
   console.log(value);
-  return fetch('http://localhost:4000/join', {
+  return fetch(HOST + '/join', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -113,6 +111,8 @@ async function createAccount(value) {
     .then((data) => data.json())
     .then((response) => {
       if (response.success === true) {
+        localStorage.setItem('userNname', value.userName);
+        localStorage.setItem('password', value.password);
         window.location.href = '/';
       } else {
         window.alert(

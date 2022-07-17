@@ -3,19 +3,20 @@ import React from 'react';
 import { useState } from 'react';
 import Quibb from '../Main/QuibbGroup/Quibb';
 import Header from '../Main/Header';
-import styles from './index.css';
+import { HOST } from '../../constants';
+import './index.css';
 
 export default function PostQuibb() {
   const [value, setValue] = useState({
-    userName: '',
-    password: '',
+    userName: localStorage.getItem('userName'),
     productName: '',
     image: '',
     description: '',
   });
+
   const [quibb, setQuibb] = useState(
     <Quibb
-      user={value.username}
+      user={value.userName}
       product={value.productName}
       description={value.description}
       image={value.image}
@@ -65,14 +66,7 @@ export default function PostQuibb() {
             label="Username:"
             className="field"
           />
-          <TextField
-            required
-            value={value.password}
-            onChange={handleChange}
-            name="password"
-            label="Password"
-            className="field"
-          />
+
           <TextField
             required
             value={value.productName}
@@ -99,7 +93,11 @@ export default function PostQuibb() {
             multiline
             rows={4}
           />
-          <Button className="button" variant="contained">
+          <Button
+            onClick={() => postQuibb(value)}
+            className="button"
+            variant="contained"
+          >
             Post Quibb
           </Button>
         </Box>
@@ -107,6 +105,50 @@ export default function PostQuibb() {
     </Box>
   );
 }
-
+const checkLogin = async () => {
+  console.log(localStorage);
+  let userName = localStorage.getItem('userName');
+  let password = localStorage.getItem('password');
+  if (userName !== null) {
+    let data = { userName: [userName], password: [password] };
+    const auth = await fetch(HOST + '/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((data) => {
+        return data.json();
+      })
+      .then((response) => {
+        return response;
+      });
+    return auth;
+  } else {
+    return false;
+  }
+};
 // eslint-disable-next-line no-unused-vars
-function postQuibb() {}
+async function postQuibb(value) {
+  let validLogin = checkLogin();
+
+  if (validLogin !== false) {
+    await fetch(HOST + '/postQuibb', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(value),
+    })
+      .then((data) => {
+        return data.json();
+      })
+      .then((response) => {
+        return response;
+      });
+  } else {
+    window.alert('You need to log in!');
+    window.location.href = '/auth';
+  }
+}

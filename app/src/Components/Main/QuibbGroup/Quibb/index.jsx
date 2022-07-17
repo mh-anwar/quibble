@@ -1,10 +1,9 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { Box, CardHeader, Typography } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
+import { Box, CardHeader, Typography, Avatar } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
-import { red } from '@mui/material/colors';
+import { blue } from '@mui/material/colors';
 import iphone from './images/iphone-13.png';
 import './index.css';
 
@@ -14,6 +13,7 @@ export default function Quibb({
   time = '',
   description = '',
   image,
+  action = false,
 }) {
   return (
     <Card
@@ -24,13 +24,19 @@ export default function Quibb({
     >
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[800] }} aria-label="recipe"></Avatar>
+          <Avatar sx={{ bgcolor: blue[700] }}>{user.split('')[0]}</Avatar>
         }
         title={product}
         subheader={user + ' • ' + time}
       />
-      <Box className='card-wrapper'>
-        <CardMedia component="img" height="200" width="200" image={iphone} draggable="false"/>
+      <Box className="card-wrapper">
+        <CardMedia
+          component="img"
+          height="200"
+          width="200"
+          image={image}
+          draggable="false"
+        />
       </Box>
       <CardContent>
         <Typography variant="body2">{description}</Typography>

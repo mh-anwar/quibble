@@ -1,14 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  min-height: 100vh;
-  min-width: 100vh;
-  margin: 0 auto;
-}
-
 .main {
   display: flex;
   margin: 0;
@@ -36,14 +25,14 @@ body {
   row-gap: 30px;
   flex-wrap: wrap;
   text-align: center;
-  width: 40%;
+  width: 50%;
   height: 50%;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   padding: 1em;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .main-login {
     display: flex;
     flex-direction: column;

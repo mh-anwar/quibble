@@ -1,10 +1,10 @@
 .login {
+  display: flex;
   flex-direction: column;
-  row-gap: 0.99em;
-  display:flex;
   flex-wrap: wrap;
+  row-gap: 1em;
   text-align: center;
-  width: 40%;
+  width: 90%;
   height: 50%;
   justify-content: center;
   padding: 1em;
