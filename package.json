@@ -7,7 +7,7 @@
     "npm": "6.x"
   },
   "scripts": {
-    "start": "cd ./server && node server.js"
+    "start": "cd ./server && npm install && node server.js"
   },
   "repository": {
     "type": "git",
