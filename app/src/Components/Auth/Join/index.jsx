@@ -12,42 +12,46 @@ import {
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import './index.css'
+import './index.css';
 
-export default function Join() {
-  const [values, setvalues] = useState({
+export default function Login() {
+  const [value, setValue] = useState({
     email: '',
     userName: '',
     password: '',
     profile: '',
   });
 
+  const handleChange = (event) => {
+    setValue((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+    console.log(value);
+  };
+
   const handleClickShowPassword = () => {
-    setvalues({
-      ...values,
-      showPassword: !values.showPassword,
+    setValue({
+      ...value,
+      showPassword: !value.showPassword,
     });
   };
-  const handleChange = (event) => {
-    setvalues((prev) => ({
-      ...prev,
-      [event.target.name]: event.target.values,
-    }));
-    console.log(values);
-  };
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
   return (
-    <Box className="join">
+    <Box component="form" className="join">
       <TextField
-        values={values.email}
+        required
+        value={value.email}
         onChange={handleChange}
         name="email"
         label="Email"
       />
       <TextField
-        values={values.userName}
+        required
+        value={value.userName}
         onChange={handleChange}
         name="userName"
         label="Username"
@@ -55,9 +59,10 @@ export default function Join() {
       <FormControl variant="outlined">
         <InputLabel htmlFor="password">Password</InputLabel>
         <OutlinedInput
+          required
           id="password"
-          type={values.showPassword ? 'text' : 'password'}
-          values={values.password}
+          type={value.showPassword ? 'text' : 'password'}
+          value={value.password}
           name="password"
           onChange={handleChange}
           endAdornment={
@@ -67,7 +72,7 @@ export default function Join() {
                 onMouseDown={handleMouseDownPassword}
                 edge="end"
               >
-                {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                {value.showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>
           }
@@ -75,17 +80,18 @@ export default function Join() {
         />
       </FormControl>
       <TextField
-        values={values.profile}
+        required
+        value={value.profile}
         onChange={handleChange}
         name="profile"
         label="Profile"
         className="field"
         multiline
-        sx={{maxHeight: "10ch"}}
+        sx={{ maxHeight: '10ch' }}
         rows={4}
       />
       <Button
-        onClick={() => createAccount(values)}
+        onClick={() => createAccount(value)}
         className="button"
         variant="contained"
       >
@@ -95,14 +101,22 @@ export default function Join() {
   );
 }
 
-async function createAccount(values) {
-  return fetch('http://localhost:4000/auth', {
+async function createAccount(value) {
+  console.log(value);
+  return fetch('http://localhost:4000/join', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(values),
+    body: JSON.stringify(value),
   })
     .then((data) => data.json())
-    .then((response) => console.log(response));
+    .then((response) => {
+      if (response.success === true) {
+        // Similar behavior as clicking on a link
+        window.location.href = '/';
+      } else {
+        window.alert('You cannot join with this username.');
+      }
+    });
 }

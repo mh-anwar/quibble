@@ -6,6 +6,8 @@ const cors = require('cors');
 const router = express.Router();
 const port = process.env.PORT || 4000;
 const barters = require('./barters.json');
+const fs = require('fs');
+
 //Don't serve frontend from backend
 //Backend is solely an API
 
@@ -25,12 +27,29 @@ app.use('/api', (request, res) => {
   });
 });
 
-app.use('/auth', (request, res) => {
-  console.log(request.body);
+app.use('/join', (request, res) => {
+  const data = request.body;
+  let user = data.userName;
+  let email = data.email;
+  let password = data.password;
+  let profile = data.profile;
+  let new_json = { [user]: { email, password, profile } };
 
-  res.send({
-    token: 'test12233',
+  console.log('initial data', new_json);
+
+  fs.readFile('./users.json', 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      obj = JSON.parse(data); //now it an object
+      let final_json = Object.assign({}, obj, new_json);
+      final_json = JSON.stringify(final_json); //convert it back to json
+      fs.writeFile('./users.json', final_json, 'utf8', (err) =>
+        console.log(err)
+      ); // write it back
+    }
   });
+  res.send({ success: true });
 });
 
 app.use('/barters', (request, res) => {
