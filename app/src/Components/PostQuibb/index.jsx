@@ -58,6 +58,7 @@ export default function PostQuibb() {
         >
           <Typography variant="h4">Details</Typography>
           <TextField
+            required
             value={value.userName}
             onChange={handleChange}
             name="userName"
@@ -65,6 +66,7 @@ export default function PostQuibb() {
             className="field"
           />
           <TextField
+            required
             value={value.password}
             onChange={handleChange}
             name="password"
@@ -72,6 +74,7 @@ export default function PostQuibb() {
             className="field"
           />
           <TextField
+            required
             value={value.productName}
             onChange={handleChange}
             name="productName"
@@ -79,6 +82,7 @@ export default function PostQuibb() {
             className="field"
           />
           <TextField
+            required
             value={value.image}
             onChange={handleChange}
             name="image"
@@ -86,6 +90,7 @@ export default function PostQuibb() {
             className="field"
           />
           <TextField
+            required
             value={value.description}
             onChange={handleChange}
             name="description"

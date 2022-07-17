@@ -6,7 +6,7 @@ import Avatar from '@mui/material/Avatar';
 import CardContent from '@mui/material/CardContent';
 import { red } from '@mui/material/colors';
 import iphone from './iphone-13.png';
-import styles from './index.css';
+import './index.css';
 
 export default function Quibb({
   user = '',
