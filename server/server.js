@@ -10,6 +10,15 @@ const fs = require('fs');
 
 //Don't serve frontend from backend
 //Backend is solely an API
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, '../app/build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '../app/build', 'index.html'));
+});
+
+app.listen(9000);
 
 app.listen(port, () => {
   console.log(`listening on port ${port} ...`);
