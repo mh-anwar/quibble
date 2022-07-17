@@ -1,6 +1,7 @@
 .login {
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 0.99em;
+  display:flex;
   flex-wrap: wrap;
   text-align: center;
   width: 40%;

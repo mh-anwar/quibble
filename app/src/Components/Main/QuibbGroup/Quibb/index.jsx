@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { CardHeader, Typography } from '@mui/material';
+import { Box, CardHeader, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import CardContent from '@mui/material/CardContent';
 import { red } from '@mui/material/colors';
@@ -29,7 +29,9 @@ export default function Quibb({
         title={product}
         subheader={user + ' • ' + time}
       />
-      <CardMedia component="img" height="200" width="200" image={iphone} />
+      <Box className='card-wrapper'>
+        <CardMedia component="img" height="200" width="200" image={iphone} draggable="false"/>
+      </Box>
       <CardContent>
         <Typography variant="body2">{description}</Typography>
       </CardContent>

@@ -39,6 +39,7 @@ body {
   width: 40%;
   height: 50%;
   justify-content: center;
+  align-items:center;
   padding: 1em;
 }
 

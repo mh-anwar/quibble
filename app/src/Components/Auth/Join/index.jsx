@@ -12,8 +12,9 @@ import {
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import './index.css'
 
-export default function Login() {
+export default function Join() {
   const [values, setvalues] = useState({
     email: '',
     userName: '',
@@ -38,7 +39,7 @@ export default function Login() {
     event.preventDefault();
   };
   return (
-    <Box className="login">
+    <Box className="join">
       <TextField
         values={values.email}
         onChange={handleChange}
@@ -80,6 +81,7 @@ export default function Login() {
         label="Profile"
         className="field"
         multiline
+        sx={{maxHeight: "10ch"}}
         rows={4}
       />
       <Button
@@ -87,7 +89,7 @@ export default function Login() {
         className="button"
         variant="contained"
       >
-        Login
+        Join
       </Button>
     </Box>
   );

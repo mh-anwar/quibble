@@ -3,3 +3,12 @@
   min-width: 300px;
   min-height: 500px;
 }
+
+.card-wrapper {
+  transition: ease .5s;
+  user-select: none;
+}
+
+.card-wrapper:hover {
+  transform: scale(1.069) /*👍*/
+}

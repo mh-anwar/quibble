@@ -1,0 +1,17 @@
+.join {
+  flex-direction: column;
+  row-gap: 0.33em;
+  display:flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  padding: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+  .join {
+    width: 90%;
+  }
+}
