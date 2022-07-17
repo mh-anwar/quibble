@@ -1,10 +1,10 @@
-![Uploading Quibble_Marketplace.png…]()
-
 ## Inspiration
 As long-time online buyers, @mh-anwar and I have tried every consumer-to-consumer platform in Canada. One thing that we constantly noted was the lack of a way to contact sellers to dispute the price, which led us to create Quibble, the price negotiation app.
 
 ## What it does
 Quibble is a platform that connects online buyers to online sellers. Buyers can range from people who enjoy the art of haggling, to money-conscious individuals. Sellers who are adept in negotiation are now able to use this skill in their e-commerce businesses. One thing that we made sure to include was the fact that, sometimes sellers don't know how much something in their garage is worth. This is where Quibble comes in: to allow the buyer and seller to reach a mutual deal. 
+
+# Full-stack Hackathon Project by @mh-anwar and @r-chong
 
 ## How we built it
 We built Quibble using React.js, Express.js, Material UI, and using Node.js for the backend of the website, and of course vanilla JavaScript, HTML, and CSS. We did not use a SQL/non-SQL database (such as MongoDB, etc) as this was just a concept design. 
