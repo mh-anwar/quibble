@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = express.Router();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 const barters = require('./barters.json');
 const fs = require('fs');
 
@@ -12,17 +12,7 @@ const fs = require('fs');
 //Backend is solely an API
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, './build')));
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, './build', 'index.html'));
-});
-
 app.listen(port);
-
-app.listen(4000, () => {
-  console.log(`listening on port ${port} ...`);
-});
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true })); //true or false??

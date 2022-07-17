@@ -1,1 +1,1 @@
-export const HOST = 'https://quibble-rh.herokuapp.com/';
+export const HOST = 'http://localhost:4000';

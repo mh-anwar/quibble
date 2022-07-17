@@ -7,6 +7,7 @@ import {
   Typography,
   Avatar,
   CardContent,
+  Button,
 } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import IconButton from '@mui/material/IconButton';
@@ -103,8 +104,10 @@ export default function Quibb({
           draggable="false"
         />
       </Box>
+
       <CardContent>
-        <Typography variant="body2">{description}</Typography>
+        <Typography variant="body2">{description}</Typography>{' '}
+        <Button>Quibble!</Button>
       </CardContent>
     </Card>
   );
