@@ -1,3 +1,5 @@
+![Uploading Quibble_Marketplace.png…]()
+
 ## Inspiration
 As long-time online buyers, @mh-anwar and I have tried every consumer-to-consumer platform in Canada. One thing that we constantly noted was the lack of a way to contact sellers to dispute the price, which led us to create Quibble, the price negotiation app.
 
