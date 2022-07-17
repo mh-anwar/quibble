@@ -1,6 +1,6 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Quibb from '../Main/QuibbGroup/Quibb';
 import Header from '../Main/Header';
 import { HOST } from '../../constants';
@@ -13,6 +13,42 @@ export default function PostQuibb() {
     image: '',
     description: '',
   });
+  let location = window.location.href.split('/');
+
+  useEffect(() => {
+    const fetchBarters = async () => {
+      //Add error catching later
+      const barters = await fetch(
+        HOST + '/editBarter/' + location[location.length - 2]
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          return json;
+        });
+      console.log(barters, location[location.length - 2]);
+      let key = location[location.length - 2].replace('%20', ' ');
+      console.log(key);
+      console.log(barters[key]);
+      let data = barters[key];
+      populateValue(key, data['image'], data['description']);
+    };
+    fetchBarters();
+  }, []);
+
+  const populateValue = (key, image, description) => {
+    setValue({
+      productName: key,
+      image: image,
+      description: description,
+    });
+    setValue({
+      productName: key,
+      image: image,
+      description: description,
+    });
+  };
 
   const [quibb, setQuibb] = useState(
     <Quibb
@@ -129,7 +165,7 @@ const checkLogin = async () => {
     return false;
   }
 };
-
+// eslint-disable-next-line no-unused-vars
 async function postQuibb(value) {
   let validLogin = checkLogin();
 

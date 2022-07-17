@@ -1,0 +1,53 @@
+.main-quibb {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1em;
+  gap: 1em;
+}
+.preview {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  flex: 40;
+}
+
+.post-quibb {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex: 60;
+  align-self: center;
+  text-align: center;
+}
+
+.field {
+  margin: 0.5em !important;
+}
+.button {
+  align-self: center;
+  width: 50%;
+}
+@media only screen and (max-width: 600px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    white-space: wrap;
+  }
+  .preview {
+    flex: 100;
+    width: 100%;
+  }
+  .post-quibb {
+    flex: 100;
+    width: 100%;
+  }
+  .button {
+    width: 70%;
+  }
+}

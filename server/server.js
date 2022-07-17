@@ -91,8 +91,6 @@ app.use('/postQuibb', (request, res) => {
     new Date().getSeconds();
   let new_json = { [productName]: { user, time, image, description } };
 
-  console.log('initial data', new_json);
-
   fs.readFile('./barters.json', 'utf8', function readFileCallback(err, data) {
     if (err) {
       console.log(err);
@@ -114,7 +112,6 @@ app.use('/postQuibb', (request, res) => {
 //Normal barter
 app.use('/barters/*', (request, res) => {
   let userName = request.params['0'];
-  console.log(userName);
   let user_data = {};
   let general_data = {};
   let main_data = {};
@@ -133,6 +130,24 @@ app.use('/barters/*', (request, res) => {
       main_data['general'] = general_data;
       main_data['user'] = user_data;
       res.send(main_data);
+    }
+  });
+});
+
+app.use('/editBarter/*', (request, res) => {
+  let product = request.params['0'];
+  let mainData = {};
+  fs.readFile('./barters.json', 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      obj = JSON.parse(data);
+      for (let key in obj) {
+        if (key === product) {
+          mainData[key] = obj[key];
+        }
+      }
+      res.send(mainData);
     }
   });
 });
