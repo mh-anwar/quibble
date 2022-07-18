@@ -24,18 +24,24 @@ The next step for Quibble would be to scale. In order to support hundreds, thous
 
 ---
 
-# How to run
+# How to Launch Quibble
 
 ### Pre-requisites
 
 - Node.js version 16+
 - NPM version 6+ (comes with node.js)
 
-This project does not have a website yet, to test locally:
+This project does not have a website yet, in order to test locally:
 
-- git clone https://github.com/mh-anwar/quibble.git repo-name
-  or with SSH
-- git clone git@github.com:mh-anwar/quibble.git repo-name
+```
+git clone https://github.com/mh-anwar/quibble.git repo-name
+```
+
+or with SSH
+
+```
+git clone git@github.com:mh-anwar/quibble.git repo-name
+```
 
 To launch the frontend:
 
