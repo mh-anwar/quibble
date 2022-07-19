@@ -7,7 +7,7 @@ import {
   Typography,
   Avatar,
   CardContent,
-  Button,
+  CardActionArea,
 } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import IconButton from '@mui/material/IconButton';
@@ -42,73 +42,68 @@ export default function Quibb({
   return (
     <Card
       key={user + product}
-      sx={{ maxWidth: '30%', maxHeight: '20%', margin: '0.3em' }}
+      sx={{ maxWidth: '30%', maxHeight: '10%', margin: '0.3em' }}
       className="card"
       raised={true}
     >
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: blue[700] }}>{user.split('')[0]}</Avatar>
-        }
-        title={product}
-        subheader={user + ' • ' + time}
-        action={
-          action === true && (
-            <Box>
-              <IconButton
-                aria-label="more"
-                id="long-button"
-                aria-controls={open ? 'long-menu' : undefined}
-                aria-expanded={open ? 'true' : undefined}
-                aria-haspopup="true"
-                onClick={handleClick}
-              >
-                <MoreVertIcon />
-              </IconButton>
-              <Menu
-                id="long-menu"
-                MenuListProps={{
-                  'aria-labelledby': 'long-button',
-                }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                PaperProps={{
-                  style: {
-                    maxHeight: ITEM_HEIGHT * 4.5,
-                  },
-                }}
-              >
-                {options.map((option) => (
-                  <MenuItem
-                    key={option}
-                    selected={option === 'Edit'}
-                    name={option}
-                    onClick={handleClose}
-                  >
-                    {option}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-          )
-        }
-      />
-
-      <Box className="card-wrapper">
-        <CardMedia
-          component="img"
-          height="200"
-          width="200"
-          image={image}
-          draggable="false"
+      <CardActionArea>
+        <CardHeader
+          avatar={
+            <Avatar sx={{ bgcolor: blue[700] }}>{user.split('')[0]}</Avatar>
+          }
+          title={product}
+          subheader={user + ' • ' + time}
+          action={
+            action === true && (
+              <Box>
+                <IconButton
+                  aria-label="more"
+                  id="long-button"
+                  aria-controls={open ? 'long-menu' : undefined}
+                  aria-expanded={open ? 'true' : undefined}
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                >
+                  <MoreVertIcon />
+                </IconButton>
+                <Menu
+                  id="long-menu"
+                  MenuListProps={{
+                    'aria-labelledby': 'long-button',
+                  }}
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  PaperProps={{
+                    style: {
+                      maxHeight: ITEM_HEIGHT * 4.5,
+                    },
+                  }}
+                >
+                  {options.map((option) => (
+                    <MenuItem
+                      key={option}
+                      selected={option === 'Edit'}
+                      name={option}
+                      onClick={handleClose}
+                    >
+                      {option}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            )
+          }
         />
-      </Box>
 
-      <CardContent>
-        <Typography variant="body2">{description}</Typography>{' '}
-        <Button>Quibble!</Button>
-      </CardContent>
+        <Box className="card-wrapper">
+          <CardMedia component="img" image={image} draggable="false" />
+        </Box>
+
+        <CardContent>
+          <Typography variant="body2">{description}</Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 }

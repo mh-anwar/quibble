@@ -1,11 +1,7 @@
 {
-  "name": "hackathon",
+  "name": "quibble",
   "version": "1.0.0",
-  "description": "",
-  "engines": {
-    "node": "16.x",
-    "npm": "6.x"
-  },
+  "description": "Quibble is an online bartering website that connects traders.",
   "scripts": {
     "start": "cd ./server && npm install && node server.js && http-server --proxy process.env.PORT ./server/build"
   },

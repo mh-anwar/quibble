@@ -1,13 +1,16 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { Avatar, Link } from '@mui/material';
-import InputBase from '@mui/material/InputBase';
+import {
+  AppBar,
+  Box,
+  Button,
+  InputBase,
+  Link,
+  Typography,
+  Toolbar,
+} from '@mui/material';
+import AvatarMenu from './Avatar';
 import { HOST } from '../../../constants';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -19,10 +22,12 @@ const Search = styled('div')(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
+  width: '30%',
+  height: '100%',
+  [theme.breakpoints.down('sm')]: {
     marginLeft: theme.spacing(1),
-    width: 'auto',
+    width: '90%',
+    height: '100%',
   },
 }));
 
@@ -44,25 +49,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
   },
 }));
 
 export default function SearchAppBar() {
   const [action, setAction] = useState(null);
-  const getRandomColor = () => {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
+
   useEffect(() => {
     const evalRes = (response, userName) => {
       if (response.username === true && response.password === true) {
@@ -71,22 +63,15 @@ export default function SearchAppBar() {
             sx={{
               display: 'flex',
               flexDirection: 'row',
-              marginRight: '5px',
+              marginLeft: '10px',
+              marginRight: '10px',
               gap: '0.3em',
             }}
           >
-            <Avatar sx={{ bgcolor: getRandomColor() }}>
-              {userName.split('')[0]}
-            </Avatar>
-            <Button
-              href="/auth"
-              onClick={() => {
-                localStorage.clear();
-              }}
-              variant="contained"
-            >
-              Logout
+            <Button href="/quibb" variant="contained">
+              Post A Quibb
             </Button>
+            <AvatarMenu userName={userName.split('')[0]} />
           </Box>
         );
       } else {
@@ -127,21 +112,27 @@ export default function SearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar
+          sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' } }}
+        >
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              flexGrow: '1',
+              justifyContent: 'space-between',
+            }}
           >
             <Link sx={{ color: '#ffff ' }} underline="none" href="/">
               Quibble
             </Link>
+            <Box>{action}</Box>
           </Typography>
-          {action}
-          <Button href="/quibb" variant="contained">
-            Post A Quibb
-          </Button>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />

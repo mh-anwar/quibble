@@ -1,7 +1,13 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Main, PostQuibb, Auth, EditQuibb } from './Components/Components';
+import {
+  Main,
+  PostQuibb,
+  Auth,
+  EditQuibb,
+  Settings,
+} from './Components/Components';
 import { HOST } from './constants';
 import './App.css';
 
@@ -13,7 +19,8 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/quibb" element={<PostQuibb />} />{' '}
           <Route path="/auth" element={<Auth />} />
-          <Route path="/editQuibb/*" element={<EditQuibb />} />
+          <Route path="/editQuibb/*" element={<EditQuibb />} />{' '}
+          <Route path="/accountSettings/*" element={<Settings />} />
         </Routes>
       </BrowserRouter>
     </Box>
