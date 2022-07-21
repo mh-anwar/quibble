@@ -2,17 +2,18 @@
   "name": "quibble",
   "version": "1.0.0",
   "description": "Quibble is an online bartering website that connects traders.",
+  "main": "index.js",
   "scripts": {
-    "start": "cd ./server && npm install && node server.js && http-server --proxy process.env.PORT ./server/build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mh-anwar/quibble.git"
+    "url": "git+https://github.com/mh-anwar/quibble.git"
   },
   "author": "Mohammad Anwar & Reese Chong",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mh-anwar/quibble/issues"
+    "url": "https://github.com/mh-anwar/hackathon/issues"
   },
-  "homepage": "https://github.com/mh-anwar/quibble#readme"
+  "homepage": "https://github.com/mh-anwar/hackathon#readme"
 }
