@@ -1,21 +1,24 @@
-1. [Recess Hacks Submission](https://github.com/mh-anwar/quibble#recess-hacks-submission-2022-by-mh-anwar-and-r-chong)
-2. [Deployment Instructions](https://github.com/mh-anwar/quibble#how-to-launch-quibble)
-3. [Live Demo](https://quibble-rh.herokuapp.com/)
-# Recess Hacks Submission 2022 by @mh-anwar and @r-chong
+1. [Projkect Details](https://github.com/mh-anwar/quibble#recess-hacks-submission-2022-by-mh-anwar-and-r-chong)
+2. [Recess Hacks Submission](https://devpost.com/software/quibble-g4tmov)
+3. [Technical Details]
+4. [Deployment Instructions](https://github.com/mh-anwar/quibble#how-to-launch-quibble)
+5. [Live Demo](https://quibble-rh.herokuapp.com/)
+
+# 2022 Recess Hacks Project Details - @mh-anwar & @r-chong
 
 ## Inspiration
 
-As long-time online buyers, @mh-anwar and I have tried every consumer-to-consumer platform in Canada. One thing that we constantly noted was the lack of a way to contact sellers to dispute the price, which led us to create Quibble, the price negotiation app.
+As long-time online buyers, @mh-anwar and @r-chong have tried every consumer-to-consumer platform in Canada. One thing that they constantly noted was the lack of a way to contact sellers to trade, which led them to create Quibble, the trading app.
 
 ## What it does
 
-Quibble is a platform that connects online buyers to online sellers. Buyers can range from people who enjoy the art of haggling, to money-conscious individuals. Sellers who are adept in negotiation are now able to use this skill in their e-commerce businesses. One thing that we made sure to include was the fact that, sometimes sellers don't know how much something in their garage is worth. This is where Quibble comes in: to allow the buyer and seller to reach a mutual deal.
+Quibble is a platform that connects online buyers to online sellers. Buyers can range from people who enjoy the art of haggling, to money-conscious individuals. Sellers who are adept in negotiation are now able to use this skill in their e-commerce businesses. One thing that we made sure to work on was the fact that, sometimes sellers don't know how much something in their garage is worth. This is where Quibble comes in: to allow the buyer and seller to reach a mutual deal.
 
-# Full-stack Hackathon Project by @mh-anwar and @r-chong
+# Full-Stack App Technical Details
 
 ## How we built it
 
-We built Quibble using React.js, Express.js, Material UI, and using Node.js for the backend of the website, and of course vanilla JavaScript, HTML, and CSS. We did not use a SQL/non-SQL database (such as MongoDB, etc) as this was just a concept design.
+We built Quibble using React.js, Express.js, Material UI, and Node.js for the backend of the website. Of course this meant that we also used vanilla JavaScript, HTML, and CSS. We did not use a SQL/non-SQL database (such as MongoDB, etc) as this was just a concept design.
 
 ## Challenges we ran into / What we learned
 
