@@ -1,3 +1,6 @@
+1. [Recess Hacks Submission](https://github.com/mh-anwar/quibble#recess-hacks-submission-2022-by-mh-anwar-and-r-chong)
+2. [Deployment Instructions](https://github.com/mh-anwar/quibble#how-to-launch-quibble)
+3. [Live Demo](https://quibble-rh.herokuapp.com/)
 # Recess Hacks Submission 2022 by @mh-anwar and @r-chong
 
 ## Inspiration
