@@ -150,3 +150,19 @@ app.use('/editBarter/*', (request, res) => {
     }
   });
 });
+app.use('/userInfo/*', (request, res) => {
+  let user = request.params['0'];
+  let mainData = {};
+  console.log(user);
+  fs.readFile('./users.json', 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      obj = JSON.parse(data);
+      console.log(obj[user]['email']);
+      mainData[user] = obj[user]['email'];
+
+      res.send(mainData);
+    }
+  });
+});

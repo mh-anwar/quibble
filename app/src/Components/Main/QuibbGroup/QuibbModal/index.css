@@ -1,0 +1,52 @@
+.quibb-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #000;
+  box-shadow: 24;
+  background-color: white;
+  display: flex;
+  flex-direction: column !important;
+  width: 60%;
+  height: fit-content;
+  border: 1px transparent;
+  border-radius: 0.3em;
+  padding: 0.5em;
+  justify-content: center;
+}
+
+.modal-image {
+  max-width: 80% !important;
+  height: auto !important;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.modal-image img {
+  display: block !important;
+  border-radius: 0.5em;
+  width: 80% !important;
+  height: auto !important;
+}
+.modal-actions {
+  text-align: center;
+  padding: 0.3em;
+  margin: 1em;
+}
+@media only screen and (max-width: 900px) {
+  .quibb-modal {
+    width: 100%;
+  }
+  .modal-image {
+    width: 100% !important;
+    height: 7% !important;
+    flex: 40;
+  }
+  .modal-image img {
+    display: block !important;
+    border-radius: 0.5em;
+    width: 100% !important;
+    height: auto !important;
+  }
+}

@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 1em;
+
   gap: 1em;
 }
 .preview {
@@ -22,6 +21,7 @@
   display: flex;
   flex-direction: column;
   flex: 60;
+  min-width: 40%;
   align-self: center;
   text-align: center;
 }
@@ -33,19 +33,16 @@
   align-self: center;
   width: 50%;
 }
-@media only screen and (max-width: 600px) {
-  .main {
+@media only screen and (max-width: 900px) {
+  .main-quibb {
     display: flex;
     flex-direction: column;
-    white-space: wrap;
   }
   .preview {
     flex: 100;
-    width: 100%;
   }
   .post-quibb {
     flex: 100;
-    width: 100%;
   }
   .button {
     width: 70%;

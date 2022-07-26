@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+
 import {
   Button,
   Box,
@@ -9,6 +10,7 @@ import {
   InputAdornment,
   InputLabel,
   IconButton,
+  Typography,
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -27,13 +29,42 @@ export default function Login() {
       showPassword: !value.showPassword,
     });
   };
-  console.log(HOST);
+
   const handleChange = (event) => {
-    setValue((prev) => ({ ...prev, [event.target.name]: event.target.value }));
+    const re = /^[a-zA-Z0-9_.-]*$/;
+    if (re.test(event.target.value)) {
+      setValue((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    }
+
     console.log(value);
   };
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const SubmitButton = () => {
+    if (value.userName.length > 5 && value.password.length > 8) {
+      return (
+        <Button onClick={() => checkAccount(value)} className="button">
+          Login
+        </Button>
+      );
+    } else if (value.userName && value.password) {
+      if (value.userName.length < 5) {
+        return (
+          <Typography>Username must be longer than 5 characters</Typography>
+        );
+      } else {
+        return (
+          <Typography>Password must be longer than 10 characters</Typography>
+        );
+      }
+    } else {
+      return <Button disabled>Login</Button>;
+    }
   };
   return (
     <Box className="login">
@@ -65,13 +96,7 @@ export default function Login() {
           label="Password"
         />
       </FormControl>
-      <Button
-        onClick={() => checkAccount(value)}
-        className="button"
-        variant="contained"
-      >
-        Login
-      </Button>
+      <SubmitButton />
     </Box>
   );
 }

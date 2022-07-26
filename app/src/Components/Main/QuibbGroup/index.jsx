@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Quibb from './Quibb';
 import { HOST } from '../../../constants';
 import './index.css';
@@ -35,6 +35,7 @@ export default function QuibbGroup() {
           product={key}
           time={userData[key]['time']}
           description={userData[key]['description']}
+          detailedDescription={userData[key]['detailedDescription']}
           image={userData[key]['image']}
           action={true}
         />
@@ -47,6 +48,7 @@ export default function QuibbGroup() {
           product={key}
           time={mainData[key]['time']}
           description={mainData[key]['description']}
+          detailedDescription={mainData[key]['detailedDescription']}
           image={mainData[key]['image']}
         />
       );
@@ -57,7 +59,13 @@ export default function QuibbGroup() {
 
   return (
     <Box key={'quibbgroup'} className="group">
+      <Typography variant="h5" sx={{ padding: '0.3em' }}>
+        Your Quibbs
+      </Typography>
       <Box className="group">{userQuibbs}</Box>
+      <Typography variant="h5" sx={{ padding: '0.3em' }}>
+        All Quibbs
+      </Typography>
       <Box className="group">{mainQuibbs}</Box>
     </Box>
   );

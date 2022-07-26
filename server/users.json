@@ -6,23 +6,7 @@
   },
   "Reese": {
     "email": "reesec3d@gmail.com",
-    "password": "test",
+    "password": "tester12345",
     "profile": "Hey, wsp!"
-  },
-  "test": { "email": "test", "password": "tester", "profile": "test" },
-  "raboo": {
-    "email": "raboo@daboo.ca",
-    "password": "yahoo",
-    "profile": "naboo"
-  },
-  "Test": {
-    "email": "test@gmail.com",
-    "password": "test",
-    "profile": "Hellow world"
-  },
-  "Tester": {
-    "email": "Tester@gmail.com",
-    "password": "Tester",
-    "profile": "Hello World"
   }
 }

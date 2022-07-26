@@ -14,6 +14,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import QuibbModal from '../QuibbModal';
 import './index.css';
 
 const options = ['Edit', 'Delete'];
@@ -25,8 +26,10 @@ export default function Quibb({
   product = '',
   time = '',
   description = '',
+  detailedDescription,
   image,
   action = false,
+  modal = false,
 }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -39,14 +42,19 @@ export default function Quibb({
     }
     setAnchorEl(null);
   };
+
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const handleModalOpen = () => setModalOpen(true);
+  const handleModalClose = () => setModalOpen(false);
+
   return (
-    <Card
-      key={user + product}
-      sx={{ maxWidth: '30%', maxHeight: '10%', margin: '0.3em' }}
-      className="card"
-      raised={true}
-    >
-      <CardActionArea>
+    <React.Fragment>
+      <Card
+        key={user + product}
+        sx={{ maxWidth: '30%', maxHeight: '10%', margin: '0.3em' }}
+        className="card"
+        raised={true}
+      >
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: blue[700] }}>{user.split('')[0]}</Avatar>
@@ -95,15 +103,31 @@ export default function Quibb({
             )
           }
         />
+        <CardActionArea
+          sx={{ maxWidth: '100%', maxHeight: '100%' }}
+          onClick={handleModalOpen}
+        >
+          <Box className="card-wrapper">
+            <CardMedia component="img" image={image} draggable="false" />
+          </Box>
 
-        <Box className="card-wrapper">
-          <CardMedia component="img" image={image} draggable="false" />
-        </Box>
-
-        <CardContent>
-          <Typography variant="body2">{description}</Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          <CardContent>
+            <Typography sx={{ wordWrap: 'break-word' }} variant="body2">
+              {description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+      {modal === true && (
+        <QuibbModal
+          user={user}
+          modalOpen={modalOpen}
+          handleModalClose={handleModalClose}
+          image={image}
+          description={description}
+          detailedDescription={detailedDescription}
+        />
+      )}
+    </React.Fragment>
   );
 }

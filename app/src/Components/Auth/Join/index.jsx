@@ -24,10 +24,18 @@ export default function Join() {
   });
 
   const handleChange = (event) => {
-    setValue((prev) => ({
-      ...prev,
-      [event.target.name]: event.target.value,
-    }));
+    const re = /^[a-zA-Z0-9_.-@]*$/;
+    if (event.target.name === 'profile') {
+      setValue((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    } else if (re.test(event.target.value)) {
+      setValue((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    }
   };
 
   const handleClickShowPassword = () => {

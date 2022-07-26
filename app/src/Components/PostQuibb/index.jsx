@@ -12,44 +12,56 @@ export default function PostQuibb() {
     productName: '',
     image: '',
     description: '',
+    detailedDescription: '',
   });
 
-  const [quibb, setQuibb] = useState(
-    <Quibb
-      user={value.userName}
-      product={value.productName}
-      description={value.description}
-      image={value.image}
-    />
-  );
-
   const handleChange = (event) => {
-    setValue((prev) => ({ ...prev, [event.target.name]: event.target.value }));
-    console.log(value);
-    setQuibb(
-      <Quibb
-        user={value.userName}
-        product={value.productName}
-        time={
-          new Date().getHours() +
-          ':' +
-          new Date().getMinutes() +
-          ':' +
-          new Date().getSeconds()
-        }
-        description={value.description}
-        image={value.image}
-      />
-    );
+    const re = /^[a-zA-Z0-9_.-]*$/;
+    if (re.test(event.target.value)) {
+      setValue((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    }
   };
-
+  const PostButton = () => {
+    if (value.productName && value.description && value.detailedDescription) {
+      return (
+        <Button
+          onClick={() => postQuibb(value)}
+          className="button"
+          variant="contained"
+        >
+          Post Quibb
+        </Button>
+      );
+    } else {
+      return (
+        <Button disabled className="button" variant="contained">
+          Post Quibb
+        </Button>
+      );
+    }
+  };
   return (
     <Box className="main">
       <Header />
       <Box className="main-quibb">
         <Box className="preview">
-          <Typography variant="h4">Preview</Typography>
-          {quibb}
+          <Quibb
+            user={value.userName}
+            product={value.productName}
+            time={
+              new Date().getHours() +
+              ':' +
+              new Date().getMinutes() +
+              ':' +
+              new Date().getSeconds()
+            }
+            description={value.description}
+            detailedDescription={value.detailedDescription}
+            image={value.image}
+          />
         </Box>
         <Box
           className="post-quibb"
@@ -57,7 +69,6 @@ export default function PostQuibb() {
           noValidate
           autoComplete="off"
         >
-          <Typography variant="h4">Details</Typography>
           <TextField
             required
             value={value.userName}
@@ -65,8 +76,10 @@ export default function PostQuibb() {
             name="userName"
             label="Username:"
             className="field"
+            InputProps={{
+              readOnly: true,
+            }}
           />
-
           <TextField
             required
             value={value.productName}
@@ -88,18 +101,28 @@ export default function PostQuibb() {
             value={value.description}
             onChange={handleChange}
             name="description"
-            label="Product Description"
+            label="Banner Description"
             className="field"
             multiline
-            rows={4}
+            sx={{ wordWrap: 'break-word' }}
+            inputProps={{
+              maxLength: 100,
+            }}
           />
-          <Button
-            onClick={() => postQuibb(value)}
-            className="button"
-            variant="contained"
-          >
-            Post Quibb
-          </Button>
+          <TextField
+            required
+            value={value.detailedDescription}
+            onChange={handleChange}
+            name="detailedDescription"
+            label="Detailed Description"
+            className="field"
+            multiline
+            sx={{ wordWrap: 'break-word' }}
+            inputProps={{
+              maxLength: 500,
+            }}
+          />
+          <PostButton />
         </Box>
       </Box>
     </Box>
