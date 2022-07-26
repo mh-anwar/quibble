@@ -50,6 +50,7 @@ export default function QuibbGroup() {
           description={mainData[key]['description']}
           detailedDescription={mainData[key]['detailedDescription']}
           image={mainData[key]['image']}
+          modal={true}
         />
       );
     });

@@ -47,7 +47,7 @@ export default function Quibb({
   detailedDescription,
   image,
   action = false,
-  modal = false,
+  modal = true,
 }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
