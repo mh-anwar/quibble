@@ -12,7 +12,8 @@ const fs = require('fs');
 //Backend is solely an API
 const path = require('path');
 
-app.listen(4000);
+app.listen(process.env.PORT || 4000, '0.0.0.0');
+console.log(process.env.PORT);
 app.use(express.static(path.resolve(__dirname, '../app/build')));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true })); //true or false??
