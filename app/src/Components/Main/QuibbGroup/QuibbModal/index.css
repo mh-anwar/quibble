@@ -10,6 +10,7 @@
   flex-direction: column !important;
   width: 60%;
   height: fit-content;
+  max-height: 70%;
   border: 1px transparent;
   border-radius: 0.3em;
   padding: 0.5em;
