@@ -1,8 +1,8 @@
-1. [Projkect Details](https://github.com/mh-anwar/quibble#2022-recess-hacks-project-details---mh-anwar--r-chong)
-2. [Recess Hacks Submission](https://devpost.com/software/quibble-g4tmov)
+1. [Project Details](#2022-recess-hacks-project-details---mh-anwar--r-chong)
+2. [Recess Hacks Submission (External)](https://devpost.com/software/quibble-g4tmov)
 3. [Technical Details](https://github.com/mh-anwar/quibble#full-stack-app-technical-details)
 4. [Deployment Instructions](https://github.com/mh-anwar/quibble#how-to-launch-quibble)
-5. [Live Demo](https://quibble-rh.herokuapp.com/)
+5. [Live Demo (External)](https://quibble-rh.herokuapp.com/)
 
 # 2022 Recess Hacks Project Details - @mh-anwar & @r-chong
 
