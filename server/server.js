@@ -12,8 +12,8 @@ const fs = require('fs');
 //Backend is solely an API
 const path = require('path');
 
-app.listen(port);
-
+app.listen(4000);
+app.use(express.static(path.resolve(__dirname, '../app/build')));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true })); //true or false??
 app.use(bodyParser.json());
@@ -165,4 +165,8 @@ app.use('/userInfo/*', (request, res) => {
       res.send(mainData);
     }
   });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../app/build', 'index.html'));
 });
