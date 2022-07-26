@@ -10,7 +10,7 @@
   flex-direction: column !important;
   width: 60%;
   height: fit-content;
-  max-height: 70%;
+  max-height: 100vh;
   border: 1px transparent;
   border-radius: 0.3em;
   padding: 0.5em;
@@ -31,9 +31,20 @@
   height: auto !important;
 }
 .modal-actions {
+  margin-top: 1em;
+  max-height: 40%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal-text {
   padding: 0.3em;
-  margin: 1em;
+  overflow: scroll;
+  overflow-y: scroll;
+  max-height: 20%;
+  text-align: center;
+  font-size: 0.000001vh;
 }
 @media only screen and (max-width: 900px) {
   .quibb-modal {

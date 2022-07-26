@@ -52,8 +52,9 @@ export default function QuibbModal({
           <img src={image} alt={description} />
         </Box>
         <Box className="modal-actions">
-          <Typography variant="h5">{detailedDescription}</Typography>
-
+          <Box className="modal-text">
+            <Typography variant="h5">{detailedDescription}</Typography>
+          </Box>
           {button}
         </Box>
       </Box>
