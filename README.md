@@ -1,4 +1,4 @@
-1. [Project/Submission Details](#2022-recess-hacks-project-details---mh-anwar--r-chong)
+1. [Project/Submission Details](#2022-recess-hacks-submission-by-mh-anwar-and-r-chong)
 2. [Recess Hacks Submission (External)](https://devpost.com/software/quibble-g4tmov)
 3. [Technical Details](#full-stack-app-technical-details)
 4. [Deployment Instructions](#how-to-launch-quibble)
