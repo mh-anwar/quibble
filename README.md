@@ -35,9 +35,9 @@ The next step for Quibble would be to scale. In order to support hundreds, thous
 ### Pre-requisites
 
 - Node.js version 16+
-- NPM version 6+ (comes with node.js)
+- NPM version 8+ (comes with node.js)
 
-This project does not have a website yet, in order to test locally:
+In order to test locally:
 
 ```
 git clone https://github.com/mh-anwar/quibble.git <repo-name>
