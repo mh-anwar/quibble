@@ -150,9 +150,7 @@ app.use('/userInfo/*', (request, res) => {
       console.log(err);
     } else {
       obj = JSON.parse(data);
-      console.log(obj[user]['email']);
       mainData[user] = obj[user]['email'];
-
       res.send(mainData);
     }
   });
