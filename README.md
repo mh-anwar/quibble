@@ -16,17 +16,17 @@ Quibble is a platform that connects online buyers to online sellers. Buyers can 
 
 # Full-Stack App Technical Details
 
-## How we built it
+## How We Built It
 
-We built Quibble using React.js, Express.js, Material UI, and Node.js for the backend of the website. Of course this meant that we also used vanilla JavaScript, HTML, and CSS. We did not use a SQL/non-SQL database (such as MongoDB, etc) as this was just a concept design.
+We built Quibble using React.js and Material UI for the frontend and Node.js as well as Express.js for the backend. Of course this meant that we also used vanilla JavaScript, HTML, and CSS. We did not use a SQL/non-SQL database (such as MongoDB, etc) as this was just a concept design.
 
-## Challenges we ran into / What we learned
+## Challenges We Ran Into / What We Learned
 
-The most important thing that we learned was to work on the backend first and frontend second. This allows for the frontend to be built based on the API and not the other way around. One challenge we ran into was the ambitious integration of a chat API (ie. Google Chat, Messenger) to allow live contact between buyers and sellers. As aspiring beginners, it was quite a humbling experience that reminded us that we still have a long way to go in our programming journey. Lastly, we were only able to get a partially working Heroku deployment up and running in for the competition, due to both our lack experience with Heroku and lack of time and so one of our next steps would be to deploy fully.
+The most important thing that we learned was to work on the backend first and frontend second. This allows for the frontend to be built based on the API and not the other way around (which causes issues). One challenge we ran into was the ambitious integration of a chat API (ie. Google Chat, Messenger) to allow live contact between buyers and sellers, unfortunately we were unable to integrate it in time and instead implemented a "Contact Quibber" feature. As aspiring beginners, it was quite a humbling experience that reminded us that we still have a long way to go in our programming journey. Lastly, we were only able to get a partially working Heroku deployment up and running in for the competition, due to both our lack experience with Heroku and lack of time and so one of our next steps would be to deploy fully.
 
-## What's next for Quibble
+## What's Next for Quibble
 
-The next step for Quibble would be to scale. In order to support hundreds, thousands if not millions of users, the project will need to use a database such as MongoDB. Furthermore we would need to iron out various bugs and to do a more in-depth dive into APIs in order to improve the negotiation experience between buyer and seller.
+The next step for Quibble would be to scale. In order to support hundreds, thousands if not millions of users, the project will need to use a database such as MongoDB. Furthermore, we would need to iron out various bugs and to do a more in-depth dive into APIs in order to improve the negotiation experience between buyer and seller. We would implement a fully functional chat, secure login and encrypted database in order to make Quibble scale.
 
 ---
 
@@ -54,7 +54,7 @@ To launch the frontend:
 ```
 cd ./app
 npm install
-npm start
+npm run start
 ```
 
 Then to launch the backend
@@ -62,5 +62,5 @@ Then to launch the backend
 ```
 cd ./server
 npm install
-npm start
+npm run start
 ```
