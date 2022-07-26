@@ -108,7 +108,6 @@ export default function Join() {
 }
 
 async function createAccount(value) {
-  console.log(value);
   return fetch(HOST + '/join', {
     method: 'POST',
     headers: {

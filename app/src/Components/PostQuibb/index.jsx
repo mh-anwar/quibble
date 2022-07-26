@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Box, Button, TextField } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 import Quibb from '../Main/QuibbGroup/Quibb';
@@ -51,13 +51,6 @@ export default function PostQuibb() {
           <Quibb
             user={value.userName}
             product={value.productName}
-            time={
-              new Date().getHours() +
-              ':' +
-              new Date().getMinutes() +
-              ':' +
-              new Date().getSeconds()
-            }
             description={value.description}
             detailedDescription={value.detailedDescription}
             image={value.image}
@@ -129,7 +122,6 @@ export default function PostQuibb() {
   );
 }
 const checkLogin = async () => {
-  console.log(localStorage);
   let userName = localStorage.getItem('userName');
   let password = localStorage.getItem('password');
   if (userName !== null) {

@@ -28,7 +28,6 @@ export default function QuibbModal({
         .then((json) => {
           return json;
         });
-      console.log(userData[user]);
       setButton(
         <Button
           onClick={() => window.open('mailto:' + userData.user)}

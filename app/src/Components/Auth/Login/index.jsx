@@ -38,8 +38,6 @@ export default function Login() {
         [event.target.name]: event.target.value,
       }));
     }
-
-    console.log(value);
   };
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -102,7 +100,6 @@ export default function Login() {
 }
 
 async function checkAccount(value) {
-  console.log(HOST + '/login');
   return fetch(HOST + '/login', {
     method: 'POST',
     headers: {

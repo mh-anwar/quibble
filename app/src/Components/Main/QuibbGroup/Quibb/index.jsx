@@ -20,11 +20,29 @@ import './index.css';
 const options = ['Edit', 'Delete'];
 
 const ITEM_HEIGHT = 48;
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
+const d = new Date();
+let month = months[d.getMonth()];
+let day = d.getDate();
 export default function Quibb({
-  user = '',
+  user = localStorage.getItem('userName'),
   product = '',
-  time = '',
+  // eslint-disable-next-line no-template-curly-in-string
+  time = `${month} ${day}`,
   description = '',
   detailedDescription,
   image,

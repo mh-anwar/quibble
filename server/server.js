@@ -13,19 +13,10 @@ const fs = require('fs');
 const path = require('path');
 
 app.listen(process.env.PORT || 4000, '0.0.0.0');
-console.log(process.env.PORT);
 app.use(express.static(path.resolve(__dirname, '../app/build')));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true })); //true or false??
 app.use(bodyParser.json());
-
-app.use('/api', (request, res) => {
-  console.log(request.body);
-
-  res.send({
-    token: 'test12233',
-  });
-});
 
 app.use('/login', (request, res) => {
   const data = request.body;
@@ -154,7 +145,6 @@ app.use('/editBarter/*', (request, res) => {
 app.use('/userInfo/*', (request, res) => {
   let user = request.params['0'];
   let mainData = {};
-  console.log(user);
   fs.readFile('./users.json', 'utf8', function readFileCallback(err, data) {
     if (err) {
       console.log(err);

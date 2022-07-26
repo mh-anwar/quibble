@@ -59,9 +59,12 @@ export default function QuibbGroup() {
 
   return (
     <Box key={'quibbgroup'} className="group">
-      <Typography variant="h5" sx={{ padding: '0.3em' }}>
-        Your Quibbs
-      </Typography>
+      {localStorage.getItem('userName') !== null && (
+        <Typography variant="h5" sx={{ padding: '0.3em' }}>
+          Your Quibbs
+        </Typography>
+      )}
+
       <Box className="group">{userQuibbs}</Box>
       <Typography variant="h5" sx={{ padding: '0.3em' }}>
         All Quibbs
