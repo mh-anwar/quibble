@@ -13,6 +13,8 @@ import {
 import AvatarMenu from './Avatar';
 import { HOST } from '../../../constants';
 import SearchIcon from '@mui/icons-material/Search';
+import Mark from './Github_mark.png';
+import './index.css';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -63,8 +65,6 @@ export default function SearchAppBar() {
             sx={{
               display: 'flex',
               flexDirection: 'row',
-              marginLeft: '10px',
-              marginRight: '10px',
               gap: '0.3em',
             }}
           >
@@ -121,16 +121,34 @@ export default function SearchAppBar() {
             component="div"
             sx={{
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: { xs: 'column', sm: 'row' },
               alignItems: 'center',
               flexGrow: '1',
               justifyContent: 'space-between',
             }}
           >
-            <Link sx={{ color: '#ffff ' }} underline="none" href="/">
-              Quibble
-            </Link>
-            <Box>{action}</Box>
+            <Box className="title-header">
+              <Link sx={{ color: '#ffff ' }} underline="none" href="/">
+                Quibble
+              </Link>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                marginLeft: '10px',
+                marginRight: '10px',
+                gap: '0.3em',
+              }}
+            >
+              {action}
+              <Button
+                href="https://github.com/mh-anwar/quibble"
+                variant="contained"
+              >
+                <img src={Mark} width="32" height="32" />
+              </Button>
+            </Box>
           </Typography>
 
           <Search>
