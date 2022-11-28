@@ -1,3 +1,5 @@
+> To-Do: Port to Deta
+
 1. [Project/Submission Details](#2022-recess-hacks-submission-by-mh-anwar-and-r-chong)
 2. [Recess Hacks Submission (External)](https://devpost.com/software/quibble-g4tmov)
 3. [Technical Details](#full-stack-app-technical-details)
