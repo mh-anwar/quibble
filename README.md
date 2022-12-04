@@ -8,6 +8,8 @@
 
 # 2022 Recess Hacks Submission by [mh-anwar](https://github.com/mh-anwar) and [r-chong](https://github.com/r-chong)
 
+![Quibble_Marketplace](https://user-images.githubusercontent.com/75395781/205465497-a0ead43c-0bf8-4568-acf4-38f5bd7228cd.png)
+
 ## Inspiration
 
 As long-time online buyers, @mh-anwar and @r-chong have tried every consumer-to-consumer platform in Canada. One thing that they constantly noted was the lack of a way to contact sellers to trade, which led them to create Quibble, the trading app.
