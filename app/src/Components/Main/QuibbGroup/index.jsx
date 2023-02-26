@@ -15,6 +15,7 @@ export default function QuibbGroup() {
         HOST + '/barters/' + localStorage.getItem('userName')
       )
         .then((response) => {
+          console.log(HOST);
           return response.json();
         })
         .then((json) => {

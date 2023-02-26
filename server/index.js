@@ -8,12 +8,11 @@ const port = process.env.PORT || 4000;
 const barters = require('./barters.json');
 const fs = require('fs');
 
-//Don't serve frontend from backend
-//Backend is solely an API
+//The frontend is served from the backend, which also acts as an API
 const path = require('path');
 
 app.listen(process.env.PORT || 4000, '0.0.0.0');
-app.use(express.static(path.resolve(__dirname, '../app/build')));
+app.use(express.static(path.resolve(__dirname, './build')));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true })); //true or false??
 app.use(bodyParser.json());
@@ -157,5 +156,5 @@ app.use('/userInfo/*', (request, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../app/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './build', 'index.html'));
 });

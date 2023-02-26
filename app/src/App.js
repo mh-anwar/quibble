@@ -8,7 +8,7 @@ import {
   EditQuibb,
   Settings,
 } from './Components/Components';
-
+import { HOST } from './constants';
 import './App.css';
 
 function App() {
@@ -26,5 +26,5 @@ function App() {
     </Box>
   );
 }
-
+console.log(HOST);
 export default App;

@@ -2,15 +2,6 @@
   "name": "quibble",
   "version": "1.0.0",
   "description": "Quibble is an online bartering website that connects traders.",
-  "main": "index.js",
-  "scripts": {
-    "start": "cd ./server && npm install && node server.js",
-    "build": "cd app && npm install && npm run build"
-  },
-  "engines": {
-    "node": "16.16.0",
-    "npm": "8.11.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mh-anwar/quibble.git"

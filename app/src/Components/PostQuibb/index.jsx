@@ -16,7 +16,7 @@ export default function PostQuibb() {
   });
 
   const handleChange = (event) => {
-    const re = /^[a-zA-Z0-9_.-]*$/;
+    const re = /^[a-zA-Z0-9_ .-]*$/;
     if (re.test(event.target.value)) {
       setValue((prev) => ({
         ...prev,

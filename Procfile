@@ -1,1 +1,0 @@
-web:npm run start && npm run build
