@@ -2,7 +2,7 @@
 # 2022 Recess Hacks Submission by [mh-anwar](https://github.com/mh-anwar) and [r-chong](https://github.com/r-chong)
 
 ## [Quibble Marketplace](https://quibble.anwar.app)
-![Quibble_Marketplace](https://user-images.githubusercontent.com/75395781/205465497-a0ead43c-0bf8-4568-acf4-38f5bd7228cd.png)
+![Quibble](https://user-images.githubusercontent.com/71291954/222923447-c506e600-7132-4cd2-b6e9-013c3ab20323.png)
 
 - [2022 Recess Hacks Submission by mh-anwar and r-chong](#2022-recess-hacks-submission-by-mh-anwar-and-r-chong)
   - [Quibble Marketplace](#quibble-marketplace)
