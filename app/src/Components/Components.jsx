@@ -1,5 +1,3 @@
-export { default as Main } from './Main';
-export { default as PostQuibb } from './PostQuibb';
-export { default as Auth } from './Auth';
-export { default as EditQuibb } from './EditQuibb';
-export { default as Settings } from './Settings';
+export { default as Header } from './Header';
+export { default as QuibbGroup } from './QuibbGroup';
+export { default as Quibb } from './QuibbGroup/Quibb';

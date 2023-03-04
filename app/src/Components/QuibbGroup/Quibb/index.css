@@ -1,0 +1,27 @@
+.card {
+  flex: 40 !important;
+  min-width: 300px;
+  min-height: 100px;
+}
+
+.card-wrapper {
+  transition: ease 0.5s;
+  user-select: none;
+}
+
+.card-wrapper:hover {
+  transform: scale(1.069);
+  /*👍*/
+}
+
+/*The next two lines are crucial to fitting images properly*/
+.MuiCardMedia-media {
+  width: 100% !important;
+}
+
+.MuiCardMedia-img {
+  display: block !important;
+
+  width: 100% !important;
+  height: auto !important;
+}

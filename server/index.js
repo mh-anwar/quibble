@@ -1,34 +1,34 @@
-//Build an API
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const router = express.Router();
-const port = process.env.PORT || 4000;
-const barters = require('./barters.json');
-const fs = require('fs');
-
-//The frontend is served from the backend, which also acts as an API
+const { Drive } = require('deta');
 const path = require('path');
+
+const app = express();
+const userDrive = Drive('users');
+const bartersDrive = Drive('barters');
 
 app.listen(process.env.PORT || 4000, '0.0.0.0');
 app.use(express.static(path.resolve(__dirname, './build')));
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true })); //true or false??
+
+// Parses HTTP Request body
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/login', (request, res) => {
+app.use('/login', async (request, res) => {
   const data = request.body;
   let user = data.userName;
   let password = data.password;
-
-  fs.readFile('./users.json', 'utf8', function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      obj = JSON.parse(data); //now it an object
-      if (user in obj) {
-        if (obj[user]['password'] == password) {
+  // Retrieve user data from Deta Drive, parse from Blob into JSON
+  userDrive
+    .get('userData.txt')
+    .then((data) => data.text())
+    .then((data) => JSON.parse(data))
+    .then((dataObject) => {
+      // Determine if user exists
+      if (user in dataObject) {
+        if (dataObject[user]['password'] == password) {
           res.send({ username: true, password: true });
         } else {
           res.send({ username: true, password: false });
@@ -36,8 +36,7 @@ app.use('/login', (request, res) => {
       } else {
         res.send({ username: false, password: false });
       }
-    }
-  });
+    });
 });
 
 app.use('/join', (request, res) => {
@@ -47,23 +46,19 @@ app.use('/join', (request, res) => {
   let password = data.password;
   let profile = data.profile;
   let new_json = { [user]: { email, password, profile } };
-
-  fs.readFile('./users.json', 'utf8', function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      obj = JSON.parse(data); //now it an object
-      let final_json = Object.assign({}, obj, new_json);
-      final_json = JSON.stringify(final_json); //convert it back to json
-      fs.writeFile(
-        './users.json',
-        final_json,
-        'utf8',
-        (err) => res.send(err),
-        console.log(err)
-      );
-    }
-  });
+  // Retrieve user data from Deta Drive, parse from Blob into JSON
+  userDrive
+    .get('userData.txt')
+    .then((data) => data.text())
+    .then((data) => JSON.parse(data))
+    .then((dataObject) => {
+      let finalJSON = Object.assign({}, dataObject, new_json);
+      finalJSON = JSON.stringify(finalJSON); //convert it back to json
+      userDrive.put('userData.txt', {
+        data: finalJSON,
+        contentType: 'text/plain',
+      });
+    });
   res.send({ success: true });
 });
 
@@ -73,88 +68,96 @@ app.use('/postQuibb', (request, res) => {
   let productName = data.productName;
   let image = data.image;
   let description = data.description;
+  let detaileDescription = data.detailedDescription;
   let time =
     new Date().getHours() +
     ':' +
     new Date().getMinutes() +
     ':' +
     new Date().getSeconds();
-  let new_json = { [productName]: { user, time, image, description } };
+  let new_json = {
+    [productName]: { user, time, image, description, detaileDescription },
+  };
 
-  fs.readFile('./barters.json', 'utf8', function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      obj = JSON.parse(data);
-      let final_json = Object.assign({}, obj, new_json);
-      final_json = JSON.stringify(final_json); //convert it back to json
-      fs.writeFile(
-        './barters.json',
-        final_json,
-        'utf8',
-        (err) => res.send(err),
-        console.log(err)
-      );
-    }
-  });
+  bartersDrive
+    .get('barterData.txt')
+    .then((data) => data.text())
+    .then((data) => JSON.parse(data))
+    .then((dataObject) => {
+      let finalJSON = Object.assign({}, dataObject, new_json);
+      finalJSON = JSON.stringify(finalJSON); //convert it back to json
+      bartersDrive.put('barterData.txt', {
+        data: finalJSON,
+        contentType: 'text/plain',
+      });
+    });
+
   res.send({ success: true });
 });
-//Normal barter
+
 app.use('/barters/*', (request, res) => {
   let userName = request.params['0'];
   let user_data = {};
   let general_data = {};
-  let main_data = {};
-  fs.readFile('./barters.json', 'utf8', function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      obj = JSON.parse(data);
-      for (let key in obj) {
-        if (obj[key]['user'] != userName) {
-          general_data[key] = obj[key];
+  let mainData = {};
+  bartersDrive
+    .get('barterData.txt')
+    .then((data) => data.text())
+    .then((data) => JSON.parse(data))
+    .then((dataObject) => {
+      for (let key in dataObject) {
+        if (dataObject[key]['user'] != userName) {
+          general_data[key] = dataObject[key];
         } else {
-          user_data[key] = obj[key];
+          user_data[key] = dataObject[key];
         }
       }
-      main_data['general'] = general_data;
-      main_data['user'] = user_data;
-      res.send(main_data);
-    }
-  });
+      mainData['general'] = general_data;
+      mainData['user'] = user_data;
+      res.send(mainData);
+    });
 });
 
 app.use('/editBarter/*', (request, res) => {
   let product = request.params['0'];
   let mainData = {};
-  fs.readFile('./barters.json', 'utf8', function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      obj = JSON.parse(data);
-      for (let key in obj) {
+  bartersDrive
+    .get('barterData.txt')
+    .then((data) => data.text())
+    .then((data) => JSON.parse(data))
+    .then((dataObject) => {
+      for (let key in dataObject) {
         if (key === product) {
-          mainData[key] = obj[key];
+          mainData[key] = dataObject[key];
         }
       }
       res.send(mainData);
-    }
-  });
+    });
 });
 app.use('/userInfo/*', (request, res) => {
   let user = request.params['0'];
   let mainData = {};
-  fs.readFile('./users.json', 'utf8', function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      obj = JSON.parse(data);
-      mainData[user] = obj[user]['email'];
+  userDrive
+    .get('userData.txt')
+    .then((data) => data.text())
+    .then((data) => JSON.parse(data))
+    .then((dataObject) => {
+      mainData[user] = dataObject[user]['email'];
       res.send(mainData);
-    }
-  });
+    });
 });
-
+app.use('/userProfile/*', (request, res) => {
+  let user = request.params['0'];
+  let mainData = {};
+  userDrive
+    .get('userData.txt')
+    .then((data) => data.text())
+    .then((data) => JSON.parse(data))
+    .then((dataObject) => {
+      mainData[user] = dataObject[user]['profile'];
+      res.send(mainData);
+    });
+});
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './build', 'index.html'));
 });
