@@ -1,30 +1,70 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {
-  Main,
-  PostQuibb,
-  Auth,
-  EditQuibb,
-  Settings,
-} from './Components/Components';
-
-import './App.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Header } from './Components/Components';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Main, PostQuibb, EditQuibb, Profile, Auth } from './Routes/Routes';
+import { CssBaseline } from '@mui/material';
 
 function App() {
+  const [theme, setTheme] = React.useState(
+    createTheme({
+      palette: {
+        mode: 'dark',
+      },
+    })
+  );
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: (
+        <>
+          <Header setTheme={setTheme} />
+          <Main />
+        </>
+      ),
+    },
+    {
+      path: '/quibb',
+      element: (
+        <>
+          <Header setTheme={setTheme} />
+          <PostQuibb />
+        </>
+      ),
+    },
+    {
+      path: '/auth',
+      element: (
+        <>
+          <Header setTheme={setTheme} />
+          <Auth />
+        </>
+      ),
+    },
+    {
+      path: '/editQuibb/*',
+      element: (
+        <>
+          <Header setTheme={setTheme} />
+          <EditQuibb />
+        </>
+      ),
+    },
+    {
+      path: '/profile/*',
+      element: (
+        <>
+          <Header setTheme={setTheme} />
+          <Profile />
+        </>
+      ),
+    },
+  ]);
   return (
-    <Box className="App">
-      <BrowserRouter basename={process.env.PORT}>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/quibb" element={<PostQuibb />} />{' '}
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/editQuibb/*" element={<EditQuibb />} />{' '}
-          <Route path="/accountSettings/*" element={<Settings />} />
-        </Routes>
-      </BrowserRouter>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <RouterProvider basename={process.env.PORT} router={router} />
+    </ThemeProvider>
   );
 }
-
 export default App;

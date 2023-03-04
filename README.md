@@ -1,15 +1,23 @@
-> To-Do: Port to Deta
-
-1. [Project/Submission Details](#2022-recess-hacks-submission-by-mh-anwar-and-r-chong)
-2. [Recess Hacks Submission (External)](https://devpost.com/software/quibble-g4tmov)
-3. [Technical Details](#full-stack-app-technical-details)
-4. [Deployment Instructions](#how-to-launch-quibble)
-5. [Live Demo (External)](https://quibble-rh.herokuapp.com/)
 
 # 2022 Recess Hacks Submission by [mh-anwar](https://github.com/mh-anwar) and [r-chong](https://github.com/r-chong)
 
+## [Quibble Marketplace](https://quibble.anwar.app)
 ![Quibble_Marketplace](https://user-images.githubusercontent.com/75395781/205465497-a0ead43c-0bf8-4568-acf4-38f5bd7228cd.png)
 
+- [2022 Recess Hacks Submission by mh-anwar and r-chong](#2022-recess-hacks-submission-by-mh-anwar-and-r-chong)
+  - [Quibble Marketplace](#quibble-marketplace)
+  - [Heroku to Deta Port](#heroku-to-deta-port)
+  - [Inspiration](#inspiration)
+  - [What it does](#what-it-does)
+- [Full-Stack App Technical Details](#full-stack-app-technical-details)
+  - [How We Built It](#how-we-built-it)
+  - [Challenges We Ran Into / What We Learned](#challenges-we-ran-into--what-we-learned)
+  - [What's Next for Quibble](#whats-next-for-quibble)
+- [How to Launch Quibble](#how-to-launch-quibble)
+    - [Pre-requisites](#pre-requisites)
+
+## Heroku to Deta Port
+After Heroku changed it's pricing plan, this project was ported to Deta in order to keep the proof of concept alive.
 ## Inspiration
 
 As long-time online buyers, @mh-anwar and @r-chong have tried every consumer-to-consumer platform in Canada. One thing that they constantly noted was the lack of a way to contact sellers to trade, which led them to create Quibble, the trading app.
@@ -44,13 +52,13 @@ The next step for Quibble would be to scale. In order to support hundreds, thous
 In order to test locally:
 
 ```
-git clone https://github.com/mh-anwar/quibble.git <repo-name>
+git clone https://github.com/mh-anwar/quibble.git <folder-name>
 ```
 
 or with SSH
 
 ```
-git clone git@github.com:mh-anwar/quibble.git <repo-name>
+git clone git@github.com:mh-anwar/quibble.git <folder-name>
 ```
 
 To launch the frontend:
@@ -61,10 +69,4 @@ npm install
 npm run start
 ```
 
-Then to launch the backend
-
-```
-cd ./server
-npm install
-npm run start
-```
+If you want to modify the backend you will have to set up a Deta Space.
